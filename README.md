@@ -1,59 +1,74 @@
-# CarLocationFrontend
+📘 Car Location – Full Stack Project
+This is a full-stack application for managing cars and their locations.
+Built with:
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
+✅ Backend: Spring Boot (Java)
 
-## Development server
+✅ Frontend: Angular 17
 
-To start a local development server, run:
+✅ Database: MySQL
 
-```bash
-ng serve
-```
+📁 Project Structure
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+car_location_backend/        <- Spring Boot backend
+car_location_frontend/       <- Angular 17 frontend
 
-## Code scaffolding
+🚀 Backend (Spring Boot)
+▶️ Run
+cd car_location_backend
+./mvnw spring-boot:run
+🌐 API Endpoints
+Method	Endpoint	Description
+POST	/api/cars	Add a new car
+GET	/api/cars	Get all cars
+GET	/api/cars/{id}	Get car by ID
+PUT	/api/cars/{id}	Update car
+DELETE	/api/cars/{id}	Delete car
+POST	/api/locations	Add new location
+GET	/api/locations/car/{id}/current	Get car's current location
+GET	/api/locations/car/{id}/history	Get location history
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+🔐 CORS
+CORS is enabled for Angular (port 4200) via a WebConfig.java class.
 
-```bash
-ng generate component component-name
-```
+🧩 Frontend (Angular 17)
+▶️ Install and Run
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+cd car_location_frontend
+npm install
+ng serve --proxy-config proxy.conf.json
+Then visit: http://localhost:4200
 
-```bash
-ng generate --help
-```
+📦 Features
+View list of cars
 
-## Building
+Add / update / delete cars
 
-To build the project run:
+View a car’s current location
 
-```bash
-ng build
-```
+View historical locations
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+🔁 Proxy Configuration 
+proxy.conf.json file forwards /api requests to Spring Boot:
 
-## Running unit tests
+json
+Copier
+Modifier
+{
+  "/api": {
+    "target": "http://localhost:8080",
+    "secure": false
+  }
+}
+Run Angular with:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-```bash
-ng test
-```
+ng serve --proxy-config proxy.conf.json
+🛠 Technologies
+Layer	Stack
+Backend	Spring Boot, Maven
+Frontend	Angular 17, TypeScript, SCSS
+UI	HTML, CSS (Dark theme)
+API Client	Angular HttpClient
+Styling	SCSS with modern layout
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

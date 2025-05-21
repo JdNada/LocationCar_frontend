@@ -52,11 +52,9 @@ View historical locations
 proxy.conf.json file forwards /api requests to Spring Boot:
 
 json
-Copier
-Modifier
 {
   "/api": {
-    "target": "http://localhost:8080",
+    "target": "http://localhost:8081",
     "secure": false
   }
 }
